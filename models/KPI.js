@@ -1,7 +1,6 @@
 import mongoose, { Schema } from 'mongoose'
 import { loadType } from 'mongoose-currency'
 
-const schema = mongoose.Schema
 loadType(mongoose)
 
 const daySchema = new Schema(
