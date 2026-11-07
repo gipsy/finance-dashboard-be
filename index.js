@@ -31,10 +31,14 @@ app.use("/transaction", transactionRoutes)
 /*MONGOOSE SETUP*/
 const PORT = process.env.PORT || 9000
 mongoose.connect(process.env.MONGO_URL).then(async () => {
+  if ((await KPI.countDocuments()) === 0) {
+    await KPI.insertMany(kpis)
+    await Product.insertMany(products)
+    await Transaction.insertMany(transactions)
+    console.log('Seeded sample finance data')
+  }
   app.listen(PORT, () => console.log(`Server Port ${PORT}`))
-  /*ADD DATA ONCE*/
-  // await mongoose.connection.db.dropDatabase()
-  // await KPI.insertMany(kpis)
-  // await Product.insertMany(products)
-  // await Transaction.insertMany(transactions)
-}).catch((error) => console.log(`${error} did not connect`))
+}).catch((error) => {
+  console.error(`${error} did not connect`)
+  process.exit(1)
+})

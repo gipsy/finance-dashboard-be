@@ -1,0 +1,28 @@
+app = "finance-dashboard-mongo"
+primary_region = "arn"
+
+[build]
+  image = "mongo:7"
+
+[env]
+  MONGO_INITDB_DATABASE = "finance-dashboard"
+
+[processes]
+  app = "--bind_ip_all"
+
+[[vm]]
+  memory = "512mb"
+  cpu_kind = "shared"
+  cpus = 1
+
+[[mounts]]
+  source = "mongo_data"
+  destination = "/data/db"
+  initial_size = "1gb"
+
+[[services]]
+  protocol = "tcp"
+  internal_port = 27017
+  auto_stop_machines = false
+  auto_start_machines = true
+  min_machines_running = 1

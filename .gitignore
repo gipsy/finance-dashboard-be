@@ -1,3 +1,13 @@
+# Dependencies
+node_modules
+.npmrc
+
+# Build output
+dist
+build
+coverage
+.nyc_output
+
 # Logs
 logs
 *.log
@@ -7,17 +17,25 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
-.env
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
 
-# Editor directories and files
+# Environment (keep .env.example)
+.env
+.env.*
+!.env.example
+
+# Fly.io local CLI cache
+.fly/
+
+# OS / editor
+.DS_Store
 .vscode/*
 !.vscode/extensions.json
 .idea
-.DS_Store
 *.suo
 *.ntvs*
 *.njsproj
