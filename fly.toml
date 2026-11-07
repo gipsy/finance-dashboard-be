@@ -8,6 +8,11 @@ primary_region = "waw"
 
 [env]
   PORT = "8080"
+  MONGO_URL = "mongodb://127.0.0.1:27017/finance-dashboard"
+
+[mounts]
+  source = "api_mongo_data"
+  destination = "/data/db"
 
 [http_service]
   internal_port = 8080

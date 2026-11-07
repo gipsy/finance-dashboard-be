@@ -1,5 +1,12 @@
-fly.toml
-Dockerfile
-.dockerignore
 node_modules
+npm-debug.log*
 .git
+.gitignore
+.dockerignore
+.env
+.env.*
+!.env.example
+.fly
+*.md
+fly.toml
+fly.mongo.toml
